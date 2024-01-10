@@ -60,7 +60,9 @@ void ReadData(void *a[],Type type[],int &num,Square sqr[max],Circle cir[max],Rec
     int cnt2 = 0;
     int cnt3 = 0;
     if(data.good()){
+        //Đọc số lượng hình(số ở đầu file)
         getline(data,dat);
+        //Chuyển thành kiểu int lưu vào num
         num = stoi(dat);
         while(!data.eof()){
             //Đọc 1 dòng rồi lưu vào biến dat
