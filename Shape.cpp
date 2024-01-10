@@ -63,17 +63,27 @@ void ReadData(void *a[],Type type[],int &num,Square sqr[max],Circle cir[max],Rec
         getline(data,dat);
         num = stoi(dat);
         while(!data.eof()){
+            //Đọc 1 dòng rồi lưu vào biến dat
             getline(data,dat);
+            //Tìm vị trí dấu :
             pos = dat.find_first_of(":",0);
+            //Cắt chuỗi từ đầu dòng đến dấu :
             temp = dat.substr(0,pos);
             if(temp == "Square"){
+                //Tìm vị trí dấu =
                 pos = dat.find_first_of("=",0);
+                //Cắt chuỗi từ sau dấu = đến hết
                 temp = dat.substr(pos+1,dat.length()-1);
+                //Chuyển chuỗi vừa cắt thành số thực lưu vào cạnh (.a)
                 sqr[cnt1].a = stof(temp);
+                //Chu vi
                 sqr[cnt1].C = CVHV(sqr[cnt1].a);
+                //Dien tich
                 sqr[cnt1].S = DTHV(sqr[cnt1].a);
 
+                //Lưu địa chỉ của biến kiểu Square vào mảng a
                 a[count] = (void*)&sqr[cnt1];
+                //Lưu kiểu dữ liệu của phần tử
                 type[count] = Type::square;
 
                 count++;
